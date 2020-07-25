@@ -123,6 +123,46 @@
           }
         }
       }
+    },
+    "ngx-util-core": {
+      "projectType": "library",
+      "root": "projects/ngx-util-core",
+      "sourceRoot": "projects/ngx-util-core/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-util-core/tsconfig.lib.json",
+            "project": "projects/ngx-util-core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-util-core/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-util-core/src/test.ts",
+            "tsConfig": "projects/ngx-util-core/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-util-core/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-util-core/tsconfig.lib.json",
+              "projects/ngx-util-core/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "NGX-UTIL-CORE-PROJECT"
 }
